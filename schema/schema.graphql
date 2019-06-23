@@ -1,0 +1,23 @@
+type Query {
+  allTodoLists: [TodoList]
+  todoList(id: ID!): TodoList
+}
+
+type TodoList {
+  id: ID
+  name: String
+  items: [TodoListItem]
+}
+
+type TodoListItem {
+  title: String
+  completed: Boolean
+}
+
+type Mutation {
+  createNewTodoList(name: String!): TodoList
+  addItemToTodoList(id: ID!, title: String!): TodoList
+  renameItemInTodoList(id: ID!, oldTitle: String!, newTitle: String!): TodoList
+  completeItemInTodoList(id: ID!, title: String): TodoList
+}
+
